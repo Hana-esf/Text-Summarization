@@ -1,0 +1,16 @@
+--extra-index-url https://download.pytorch.org/whl/cu121
+# Basic libraries
+pandas==2.2.2
+numpy==1.26.4
+torch==2.4.0+cu121
+torchaudio==2.4.0+cu121
+torchvision==0.19.0+cu121 
+scikit-learn==1.5.1
+accelerate==0.33.0 
+# Hugging Face libraries
+transformers==4.43.3
+datasets==2.20.0
+
+# Progress bars and logging
+tqdm==4.66.4
+rich==13.7.1
