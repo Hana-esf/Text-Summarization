@@ -1,0 +1,39 @@
+# version: '3.8'
+
+# services:
+#   react-app:
+#     build:
+#       context: .
+#       dockerfile: Dockerfile
+#     labels:
+#       - "traefik.enable=true"
+#       - "traefik.http.routers.react-app.rule=Host(`your-domain.com`)"
+#       - "traefik.http.routers.react-app.entrypoints=web,websecure"
+#       - "traefik.http.routers.react-app.tls=true"
+#       - "traefik.http.routers.react-app.tls.certresolver=letsencrypt"
+#       - "traefik.http.services.react-app.loadbalancer.server.port=5000"
+#     networks:
+#       - web
+
+# networks:
+#   web:
+#     external: true
+
+
+version: '3.8'
+
+services:
+  react-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5001:5000"  # Map port 5000 in the container to port 5000 on the host
+    networks:
+      - web
+    environment:
+      - REACT_APP_BACKEND_URL=http://localhost:5000
+
+networks:
+  web:
+    driver: bridge
